@@ -1,7 +1,7 @@
 {
-  "name": "react-extension",
+  "name": "weather-extension",
   "version": "1.0.0",
-  "description": "Chrome extension template in React",
+  "description": "React Weather Extension",
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch --progress --config webpack.dev.js",

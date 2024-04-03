@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "React Extension",
-    "description": "Chrome extension in React",
+    "name": "Weather Extension",
+    "description": "Weather extension in React",
     "version": "1.0.0",
     "icons": {
         "16": "icon.png",
@@ -10,7 +10,7 @@
     },
     "action": {
         "default_popup": "popup.html",
-        "default_title": "React Extension",
+        "default_title": "Weather Extension",
         "default_icon": {
             "16": "icon.png",
             "24": "icon.png",
