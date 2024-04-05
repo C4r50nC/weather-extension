@@ -2,10 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./popup.css";
 
-const test = <img src="icon.png" />;
+const App: React.FC<{}> = () => {
+  return (
+    <div>
+      <img src="icon.png" />
+    </div>
+  );
+};
+
+const rootElement = document.createElement("div");
+rootElement.id = "root";
+document.body.appendChild(rootElement);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-root.render(test);
+root.render(<App />);

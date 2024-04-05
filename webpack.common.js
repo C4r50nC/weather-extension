@@ -59,10 +59,9 @@ function getHtmlPlugins(chunks) {
   return chunks.map(
     (chunk) =>
       new HtmlPlugin({
-        title: "React Extension",
+        title: "Weather Extension",
         filename: `${chunk}.html`,
         chunks: [chunk],
-        template: `src/${chunk}/${chunk}.html`,
       })
   );
 }
