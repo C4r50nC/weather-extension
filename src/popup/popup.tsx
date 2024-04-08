@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "@fontsource/roboto";
 import "./popup.css";
 import WeatherCard from "./weather-card";
 
@@ -8,6 +9,7 @@ const App: React.FC<{}> = () => {
     <div>
       <WeatherCard city="Toronto" />
       <WeatherCard city="New York" />
+      <WeatherCard city="Error" />
     </div>
   );
 };
