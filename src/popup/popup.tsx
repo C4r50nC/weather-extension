@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
+import { Box, Grid, InputBase, IconButton, Paper } from "@mui/material";
+import { Add as AddIcon } from "@mui/icons-material";
 import "@fontsource/roboto";
 import "./popup.css";
 import WeatherCard from "./weather-card";
 
 const App: React.FC<{}> = () => {
+  const [cities, setCities] = useState<string[]>([
+    "Toronto",
+    "New York",
+    "Error",
+  ]);
+
   return (
-    <div>
-      <WeatherCard city="Toronto" />
-      <WeatherCard city="New York" />
-      <WeatherCard city="Error" />
-    </div>
+    <Box mx="8px" my="16px">
+      <Grid container>
+        <Grid item>
+          <Paper>
+            <Box px="15px" py="5px">
+              <InputBase placeholder="Add a city name" />
+              <IconButton>
+                <AddIcon />
+              </IconButton>
+            </Box>
+          </Paper>
+        </Grid>
+      </Grid>
+      {cities.map((city, index) => (
+        <WeatherCard city={city} key={index} />
+      ))}
+    </Box>
   );
 };
 
