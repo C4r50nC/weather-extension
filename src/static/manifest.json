@@ -17,6 +17,9 @@
             "32": "icon.png"
         }
     },
+    "permissions": [
+        "storage"
+    ],
     "options_page": "options.html",
     "background": {
         "service_worker": "background.js"

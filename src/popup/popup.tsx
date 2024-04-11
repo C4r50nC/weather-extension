@@ -1,30 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Box, Grid, InputBase, IconButton, Paper } from "@mui/material";
 import { Add as AddIcon } from "@mui/icons-material";
 import "@fontsource/roboto";
 import "./popup.css";
 import WeatherCard from "./weather-card";
+import { setStoredCities, getStoredCities } from "../utils/storage";
 
 const App: React.FC<{}> = () => {
-  const [cities, setCities] = useState<string[]>([
-    "Toronto",
-    "New York",
-    "Error",
-  ]);
+  const [cities, setCities] = useState<string[]>([]);
   const [cityInput, setCityInput] = useState<string>("");
+
+  useEffect(() => {
+    getStoredCities().then((cities) => setCities(cities));
+  }, []);
 
   const handleCityButtonClick = () => {
     if (cityInput === "") {
       return;
     }
-    setCities([...cities, cityInput]);
-    setCityInput("");
+    const updatedCities = [...cities, cityInput];
+    setStoredCities(updatedCities).then(() => {
+      setCities(updatedCities);
+      setCityInput("");
+    });
   };
 
   const handleCityDeleteButtonClick = (index: number) => {
-    cities.splice(index, 1); // splice() returns the deleted values so cannot be used directly in setCities()
-    setCities([...cities]);
+    cities.splice(index, 1);
+    const updatedCities = [...cities];
+    setStoredCities(updatedCities).then(() => {
+      setCities(updatedCities);
+    });
   };
 
   return (
