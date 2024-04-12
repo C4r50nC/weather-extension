@@ -1,5 +1,8 @@
-import { setStoredCities } from "../utils/storage";
+import { setStoredCities, setStoredOptions } from "../utils/storage";
 
-chrome.runtime.onMessage.addListener((_msg, _sender, _sendResponse) => {
+chrome.runtime.onMessage.addListener(() => {
   setStoredCities([]);
+  setStoredOptions({
+    tempScale: "metric",
+  });
 });
