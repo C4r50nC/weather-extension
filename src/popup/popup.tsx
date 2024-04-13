@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import { Box, Grid, InputBase, IconButton, Paper, Icon } from "@mui/material";
+import { Box, Grid, InputBase, IconButton, Paper } from "@mui/material";
 import { Add as AddIcon } from "@mui/icons-material";
 import "@fontsource/roboto";
 import "./popup.css";
