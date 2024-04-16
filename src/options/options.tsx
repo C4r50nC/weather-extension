@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   Grid,
+  Switch,
   TextField,
   Typography,
 } from "@mui/material";
@@ -31,13 +32,17 @@ const App: React.FC<{}> = () => {
     setOptions({ ...options, homeCity });
   };
 
+  const handleAutoOverlayChange = (hasAutoOverlay: boolean) => {
+    setOptions({ ...options, hasAutoOverlay });
+  };
+
   const handleSaveButtonClick = () => {
     setFormState("saving");
     setStoredOptions(options).then(() => {
       // Add saving time to make saving more convincing
       setTimeout(() => {
         setFormState("ready");
-      }, 1000);
+      }, 500);
     });
   };
 
@@ -63,6 +68,17 @@ const App: React.FC<{}> = () => {
                 placeholder="Enter a home city name"
                 value={options.homeCity}
                 onChange={(event) => handleHomeCityChange(event.target.value)}
+                disabled={isFieldDisabled}
+              />
+            </Grid>
+            <Grid item>
+              <Typography variant="body1">
+                Turn on auto overlay weather card on webpage
+              </Typography>
+              <Switch
+                color="primary"
+                checked={options.hasAutoOverlay}
+                onChange={(_event, checked) => handleAutoOverlayChange(checked)}
                 disabled={isFieldDisabled}
               />
             </Grid>
