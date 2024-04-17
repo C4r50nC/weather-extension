@@ -36,13 +36,14 @@ const App: React.FC<{}> = () => {
     setOptions({ ...options, hasAutoOverlay });
   };
 
+  const SAVING_DELAY_IN_MILLISECONDS = 500;
   const handleSaveButtonClick = () => {
     setFormState("saving");
     setStoredOptions(options).then(() => {
       // Add saving time to make saving more convincing
       setTimeout(() => {
         setFormState("ready");
-      }, 500);
+      }, SAVING_DELAY_IN_MILLISECONDS);
     });
   };
 
