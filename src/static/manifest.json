@@ -18,6 +18,7 @@
         }
     },
     "permissions": [
+        "contextMenus",
         "storage"
     ],
     "options_page": "options.html",

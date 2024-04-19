@@ -60,7 +60,7 @@ const WeatherCard: React.FC<{
         <Typography className="weather-card-body">
           {cardState === "loading"
             ? "Loading..."
-            : `Error: could not retrieve weather data for "${city}".`}
+            : "Error: could not retrieve weather data for this city."}
         </Typography>
       </WeatherCardContainer>
     );
